@@ -1,0 +1,60 @@
+body {
+	 background: #27556C;
+	 color: WhiteSmoke;
+     line-height: 1.5;
+	 font-size: 62.5%;
+ 	 text-align: center;
+}
+
+h1 {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 5.2em;
+}
+
+h3 {
+    font-family: 'Open Sans', Georgia, Times, serif;
+	font-size : 1.8em;
+
+}
+
+form { 
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.search-bar {
+	padding: 1.25em 2.5em;
+	background: #032536;
+	border: 0px solid #dbdbdb;
+	color: WhiteSmoke;
+	font-size: 3.0vmin;
+	font-family: 'Open Sans', Georgia, Times, serif;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.search-btn{	
+	padding: 1.0em 1.0em;
+	background: WhiteSmoke;
+	font-color: #032536;
+	font-size: 3.0vmin;
+	font-family: 'Open Sans', Georgia, Times, serif;
+	margin-left: auto;
+	margin-right: auto;
+}
+.search-btn:hover {
+	background:  Silver;
+}
+
+section.map-canvas {
+	width: 100%;
+}
+
+/*.color-primary-0 { color: #27556C }	
+.color-primary-1 { color: #6E91A1 }
+.color-primary-2 { color: #477286 }
+.color-primary-3 { color: #113C51 }
+.color-primary-4 { color: #032536 }
+*/

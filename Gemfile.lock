@@ -21,6 +21,8 @@ GEM
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
     safe_yaml (1.0.4)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -34,6 +36,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec
+  rspec (~> 3.1.0)
+  shotgun (~> 0.9)
   sinatra
   webmock (~> 1.20.4)
