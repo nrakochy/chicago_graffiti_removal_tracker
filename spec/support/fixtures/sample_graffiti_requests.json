@@ -1,0 +1,68 @@
+[
+  {
+    "police_district" : "12",
+    "zip_code" : "60608",
+    "location" : {
+      "needs_recoding" : false,
+      "longitude" : "-87.67355391908644",
+      "latitude" : "41.85282566369766"
+    },
+    "status" : "Open",
+    "where_is_the_graffiti_located_" : "Side",
+    "service_request_number" : "14-02155523",
+    "x_coordinate" : "1164037.50683076",
+    "creation_date" : "2014-12-17T00:00:00",
+    "what_type_of_surface_is_the_graffiti_on_" : "Wood - Painted",
+    "ward" : "25",
+    "y_coordinate" : "1889720.71130794",
+    "longitude" : "-87.67355391908644",
+    "community_area" : "31",
+    "type_of_service_request" : "Graffiti Removal",
+    "latitude" : "41.85282566369766",
+    "street_address" : "2140 S WOLCOTT AVE"
+  }
+  , {
+    "police_district" : "10",
+    "zip_code" : "60608",
+    "location" : {
+      "needs_recoding" : false,
+      "longitude" : "-87.6783492675288",
+      "latitude" : "41.8495308623829"
+    },
+    "status" : "Open",
+    "where_is_the_graffiti_located_" : "Side",
+    "service_request_number" : "14-02155534",
+    "x_coordinate" : "1162737.57397587",
+    "creation_date" : "2014-12-17T00:00:00",
+    "what_type_of_surface_is_the_graffiti_on_" : "Brick - Unpainted",
+    "ward" : "25",
+    "y_coordinate" : "1888401.43017363",
+    "longitude" : "-87.6783492675288",
+    "community_area" : "31",
+    "type_of_service_request" : "Graffiti Removal",
+    "latitude" : "41.8495308623829",
+    "street_address" : "2100 W 23RD PL"
+  }
+  , {
+    "police_district" : "10",
+    "zip_code" : "60623",
+    "location" : {
+      "needs_recoding" : false,
+      "longitude" : "-87.6982144342002",
+      "latitude" : "41.84993345057165"
+    },
+    "status" : "Open",
+    "where_is_the_graffiti_located_" : "Garage",
+    "service_request_number" : "14-02155951",
+    "x_coordinate" : "1157384.61611542",
+    "creation_date" : "2014-12-17T00:00:00",
+    "what_type_of_surface_is_the_graffiti_on_" : "Aluminum Siding",
+    "ward" : "12",
+    "y_coordinate" : "1888587.87767122",
+    "longitude" : "-87.6982144342002",
+    "community_area" : "30",
+    "type_of_service_request" : "Graffiti Removal",
+    "latitude" : "41.84993345057165",
+    "street_address" : "2867 W 23RD ST"
+  }
+]
