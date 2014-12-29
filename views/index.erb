@@ -20,6 +20,13 @@
   </form>
 
   <div class="map-canvas">
+    <script>
+      $(document).ready(function(){
+      var chicagoMap = drawChicagoMap();
+      addMapMarkers(sampleDataRecord, chicagoMap);
+      });
+    </script>
+
   </div>
 
 </body>
