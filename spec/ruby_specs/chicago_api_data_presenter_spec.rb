@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 CHICAGO_TEST_API = 'https://data.cityofchicago.org/'
 
