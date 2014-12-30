@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 describe ChicagoDataMasher do
   describe '.find_open_requests_for_graffiti_removal' do

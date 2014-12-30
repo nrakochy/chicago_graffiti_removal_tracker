@@ -22,7 +22,7 @@ class GraffitiRemovalTracker < Sinatra::Base
       "where_is_the_graffiti_located_" => "Side",
       "service_request_number" => "14-02155523",
       "x_coordinate" => "1164037.50683076",
-      "creation_date" => "2014-12-17T00=>00=>00",
+      "creation_date" => "2014-12-17T00:0000",
       "what_type_of_surface_is_the_graffiti_on_" => "Wood - Painted",
       "ward" => "25",
       "y_coordinate" => "1889720.71130794",
@@ -39,7 +39,7 @@ class GraffitiRemovalTracker < Sinatra::Base
     erb :index, :locals => { :openRequests => @open_graffiti_requests}
   end
 
-#  post '/' do    
+#  post '/' do
   #  location_request = params[:location]
   #  matching_records = ChicagoDataMasher.find_by_zip_code(location, @open_graffiti_requests)
   #  { message: matching_records }.to_jso

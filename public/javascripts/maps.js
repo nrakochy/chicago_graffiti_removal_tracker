@@ -10,7 +10,7 @@ var drawChicagoMap = function drawMap(){
 
  var createMapMarker = function createMarker(dataRecord){
    markerLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
-   var newMarker = new google.maps.Marker({
+   newMarker = new google.maps.Marker({
      position: markerLatLng,
      title: "FOO BAR"
    });
@@ -20,7 +20,7 @@ var drawChicagoMap = function drawMap(){
  var addMapMarkers = function addMarkers(chicagoData, map){
    $.each(chicagoData, function(index, dataRecord){
       marker = createMapMarker(dataRecord);
-       marker.setMap(map);
+      marker.setMap(map);
      });
      return map;
  };

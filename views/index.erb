@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>Graffiti Tracker</title>
@@ -21,13 +21,14 @@
   </form>
 
   <div class="map-canvas">
-    <%= openRequests %>
   </div>
 
   <script>
     $(document).ready(function(){
+    var openChicagoRequests= $.parseJSON('<%= openRequests %>');
+    console.log(jQuery.type(openChicagoRequests));
     chicagoMap = drawChicagoMap();
-    addMapMarkers(openRequests, chicagoMap);
+    map = addMapMarkers(openChicagoRequests, chicagoMap);
     });
   </script>
 
