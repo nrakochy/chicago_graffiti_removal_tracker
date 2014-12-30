@@ -36,8 +36,7 @@ class GraffitiRemovalTracker < Sinatra::Base
   end
 
   get '/' do
-    @open_graffiti_requests
-    erb :index
+    erb :index, :locals => { :openRequests => @open_graffiti_requests}
   end
 
 #  post '/' do    
