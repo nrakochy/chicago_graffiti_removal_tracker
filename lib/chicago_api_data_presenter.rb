@@ -11,7 +11,7 @@ class ChicagoApiDataPresenter
       request = Net::HTTP::Get.new(uri)
       response = http.request(request)
     end
-    valid_response?(response) ? (response.body) : []
+    valid_response?(response) ? (JSON.parse(response.body)) : []
   end
 
   def self.valid_response?(http_response)
