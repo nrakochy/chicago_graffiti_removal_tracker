@@ -4,7 +4,6 @@ require 'uri'
 
 class ChicagoApiDataPresenter
 
-
   def self.get_data(external_api)
     response = nil
     uri = URI(external_api)
@@ -12,7 +11,7 @@ class ChicagoApiDataPresenter
       request = Net::HTTP::Get.new(uri)
       response = http.request(request)
     end
-    valid_response?(response) ? JSON.parse(response.body) : []
+    valid_response?(response) ? (response.body) : []
   end
 
   def self.valid_response?(http_response)

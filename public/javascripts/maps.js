@@ -1,11 +1,12 @@
+var map;
+
 var drawChicagoMap = function drawMap(){
-    chicagoCoordinates = new google.maps.LatLng(41.8369, -87.6847);
+    chicagoCoordinates = new google.maps.LatLng(41.8789, -87.6358);
      mapOptions = {
-       zoom: 10,
+       zoom: 12,
        center: chicagoCoordinates
      }
-     baseMap = new google.maps.Map($('.map-canvas'), mapOptions);
-     return baseMap;
+     return new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
  }
 
  var createMapMarker = function createMarker(dataRecord){

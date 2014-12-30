@@ -6,7 +6,7 @@ body {
   text-align: center;
   height: 100%;
   margin: 0px;
-  padding: 0px
+  padding: 0px;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
 }
 
 h3 {
-  font-family: 'Open Sans', Georgia, Times, serif;
+  font-family: 'Open Sans', Georgia, Times;
   font-size : 1.8em;
 
 }
@@ -33,7 +33,7 @@ form {
   border: 0px solid #dbdbdb;
   color: WhiteSmoke;
   font-size: 3.0vmin;
-  font-family: 'Open Sans', Georgia, Times, serif;
+  font-family: 'Open Sans', Georgia, Times;
   margin-left: auto;
   margin-right: auto;
 }
@@ -52,9 +52,9 @@ form {
   background:  Silver;
 }
 
-.map-canvas {
+#map-canvas {
   height: 600px;
-  width: 100%;
+  width: 70%;
   padding: 0px;
   margin: 0px;
   margin-left: auto;
@@ -64,7 +64,9 @@ form {
 
 }
 
-/*.color-primary-0 { color: #27556C }	
+/*
+Color Palette
+.color-primary-0 { color: #27556C }	
 .color-primary-1 { color: #6E91A1 }
 .color-primary-2 { color: #477286 }
 .color-primary-3 { color: #113C51 }

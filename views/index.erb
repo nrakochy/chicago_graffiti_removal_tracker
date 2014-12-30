@@ -13,22 +13,24 @@
 <body>
   <h1>Chicago Graffiti Removal Tracker</h1>
   <h3>Find existing requests and make new ones for graffiti removal</h3>
-
-  <form action='/' method= 'POST'>
-    <input type="text" class="search-bar" placeholder="Search by Zip Code"
-    name="Location" id="Location">
-    <button type="button" class="search-btn">SEARCH</button>
-  </form>
-
-  <div class="map-canvas">
+  <div id="form">
+    <form action='/' method= 'POST'>
+      <input type="text" class="search-bar" placeholder="Search by Zip Code"
+      name="Location" id="Location">
+      <button type="button" class="search-btn">SEARCH</button>
+    </form>
   </div>
+
+  <div id="map-canvas">
+  </div>
+  <div id="extra">HELLO
+   </div>
 
   <script>
     $(document).ready(function(){
-    var openChicagoRequests= $.parseJSON('<%= openRequests %>');
-    console.log(jQuery.type(openChicagoRequests));
+    openChicagoRequests= $.parseJSON('<%= openRequests %>');
     chicagoMap = drawChicagoMap();
-    map = addMapMarkers(openChicagoRequests, chicagoMap);
+    addMapMarkers(openChicagoRequests, chicagoMap);
     });
   </script>
 
