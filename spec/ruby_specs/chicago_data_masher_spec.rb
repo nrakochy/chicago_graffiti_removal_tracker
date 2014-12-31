@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require 'time'
 
 describe ChicagoDataMasher do
   describe '.find_open_requests_for_graffiti_removal' do
@@ -8,6 +9,14 @@ describe ChicagoDataMasher do
       expect(open_requests.count).to eq(2)
       expect(open_requests.class).to eq(Array)
       expect(open_requests.first.class).to eq(Hash)
+    end
+  end
+
+  describe '.find_duration_since_request_was_made' do
+    it 'adds a Hash Object with number of days since request for removal was opened' do
+      sample_data = [{'status'=> 'open', 'id' => 2, "creation_date" => "2014-12-17T00:00:00"}]
+      modified_data = ChicagoDataMasher.find_duration_since_request_was_made(sample_data)
+      expect(modified_data.first.has_key?("days_elapsed_since_request")).to eq(true)
     end
   end
 
