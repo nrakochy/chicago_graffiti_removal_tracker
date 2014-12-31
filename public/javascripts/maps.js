@@ -8,32 +8,35 @@ var drawChicagoMap = function drawMap(){
 }
 
 var addMapMarkers = function addMarkers(chicagoData, map){
-  $.each(chicagoData, function addMarkersToEach(index, dataRecord){
+  $.each(chicagoData, function addMarkersForEach(index, dataRecord){
     createMapMarker(map, dataRecord);
   });
-  return map;
 };
 
 var createMapMarker = function createMarker(map, dataRecord){
   markerLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
   newMarkerLocationInformation = setLocationInformation(dataRecord);
-  newMarker = new google.maps.Marker({
+  dataWindow = new google.maps.InfoWindow({
+    content: ""
+  })
+
+  newMapMarker = new google.maps.Marker({
     position: markerLatLng,
     clickable: true,
     icon: '../style/red-marker.png',
     map: map
   });
-  createInfoWindow(newMarker, newMarkerLocationInformation, map)
-  google.maps.event.addListener(newMarker, 'click', function() {
-    dataWindow.open(map,newMarker);
-  });
-  return newMarker;
+
+  bindInfoWindow(map, newMapMarker, dataWindow, newMarkerLocationInformation);
 };
 
-var createInfoWindow = function createWindow(marker, locationInfo, map){
-  dataWindow = new google.maps.InfoWindow({
-    content: locationInfo
-  })
+var bindInfoWindow = function bindWindow(map, marker, windowObj, windowData){
+  google.maps.event.addListener(marker, 'click', function googleClickListener() {
+    windowObj.setContent(windowData);
+    windowObj.open(map, marker)
+  });
+
+
 }
 
 var setLocationInformation = function setInformation(dataRecord){
