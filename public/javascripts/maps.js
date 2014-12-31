@@ -20,8 +20,8 @@ var createMapMarker = function createMarker(dataRecord){
   markerLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
   newMarker = new google.maps.Marker({
     position: markerLatLng,
-    title: dataRecord['street_address'],
-    clickable: true
+    clickable: true,
+    icon: '../style/red-marker.png'
   });
   return newMarker;
 };
@@ -36,11 +36,11 @@ var createInfoWindow = function createWindow(map, marker, dataRecord){
 }
 
 var populateInfoWindow = function populateWindow(dataRecord){
-  locationInformation = $('<div class="locationData">'+
-    '<h3 class="markerHeading">' + dataRecord['street_address'] + '</h3>'+
-    '<div class="markerContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large Rock </p>' +
-    '</div>'+
+  locationInformation = $('<div class="mapInfoWindow">'+
+    '<h4>' + dataRecord['street_address'] + '</h4>'+
+        '<h5>Days Open:  '+ dataRecord['days_elapsed_since_request'] + '</h5>' +
+        '<h5>Ward:  '+ dataRecord['ward'] + '</h5>' +
+        '<h5>Zip Code:  '+ dataRecord['zip_code'] + '</h5>' +
   '</div>')
   return locationInformation[0];
 }

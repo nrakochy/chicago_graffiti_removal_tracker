@@ -37,10 +37,10 @@ form {
   margin-right: auto;
 }
 
-.search-btn{	
+.search-btn{
   padding: 1.0em 1.0em;
   background: WhiteSmoke;
-  font-color: #032536;
+  color: #032536;
   font-size: 3.0vmin;
   font-family: 'Open Sans', Georgia, Times, serif;
   margin-left: auto;
@@ -48,25 +48,33 @@ form {
 }
 
 .search-btn:hover {
-  background:  Silver;
+  background:  LightGray;
 }
 
 #map-canvas {
   height: 600px;
-  width: 70%;
+  width: 80%;
   padding: 0px;
   margin: 0px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 100px;
   font-family: 'Open Sans', Georgia, Times, serif;
 
 }
 
-#locationData {
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-color: #27556C;
+.mapInfoWindow{
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    background: WhiteSmoke;
+    border-radius: 8px;
+    color: #27556C;
+    text-align:center;
+    overflow:hidden;
+    position:absolute;
+    text-transform:uppercase;
+    float:right;
 }
+
 
 /*
 Color Palette
