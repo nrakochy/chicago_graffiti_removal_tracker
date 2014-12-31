@@ -7,6 +7,7 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+  position: absolute;
 }
 
 h1 {
@@ -70,7 +71,6 @@ form {
     color: #27556C;
     text-align:center;
     overflow:hidden;
-    position:absolute;
     text-transform:uppercase;
     float:right;
 }
