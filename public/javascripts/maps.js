@@ -1,24 +1,19 @@
 var initialize = function(graffitiData){
-  searchBox = createInputSearchBox();
   chicagoMap = drawChicagoMap();
   addMapMarkers(graffitiData, chicagoMap);
-  biasSearchBoxResults(searchBox, chicagoMap);
+  searchBox = createInputSearchBox();
+  biasSearchBoxResults(searchBox);
 }
 
 function drawChicagoMap(){
 
-  southwestCornerChicago = new google.maps.LatLng(41.6072, -87.8617);
-  northeastCornerChicago = new google.maps.LatLng(42.106111, -87.471111);
-  defaultBounds = new google.maps.LatLngBounds(southwestCornerChicago, northeastCornerChicago);
   chicagoCenterCoordinates = new google.maps.LatLng(41.8789, -87.6358);
 
   mapOptions = {
-    zoom: 10,
-    center: chicagoCenterCoordinates
+    center: chicagoCenterCoordinates,
+    zoom: 11
   }
   baseMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  baseMap.fitBounds(defaultBounds);
-  console.log(baseMap.getBounds());
   return baseMap;
 }
 
@@ -75,7 +70,16 @@ function createInputSearchBox(){
   return searchBox;
 };
 
-function biasSearchBoxResults(inputSearchBox, map){
-    bounds = map.getBounds();
-    inputSearchBox.setBounds(bounds);
+function biasSearchBoxResults(inputSearchBox){
+    searchBounds = setSearchBoxBounds();
+    inputSearchBox.setBounds(searchBounds);
 }
+
+function setSearchBoxBounds(){
+  southwestCornerChicago = new google.maps.LatLng(41.6072, -87.8617);
+  northeastCornerChicago = new google.maps.LatLng(42.106111, -87.471111);
+  cityBounds = new google.maps.LatLngBounds(southwestCornerChicago, northeastCornerChicago);
+  return cityBounds;
+}
+
+
