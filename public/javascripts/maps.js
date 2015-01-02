@@ -6,7 +6,6 @@ var initialize = function(graffitiData){
 }
 
 function drawChicagoMap(){
-
   chicagoCenterCoordinates = new google.maps.LatLng(41.8789, -87.6358);
 
   mapOptions = {
@@ -26,8 +25,9 @@ function addMapMarkers(chicagoData, map){
 function createMapMarker(map, dataRecord){
   myLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
   newMarkerLocationInformation = setLocationInformation(dataRecord);
+  google.maps.InfoWindow.prototype.windowIsOpen = false;
   dataWindow = new google.maps.InfoWindow({
-    content: ""
+    content: null
   })
 
   newMapMarker = new google.maps.Marker({
@@ -42,8 +42,14 @@ function createMapMarker(map, dataRecord){
 
 function bindInfoWindowData(map, marker, windowObj, windowData){
   google.maps.event.addListener(marker, 'click', function googleClickListener() {
-    windowObj.setContent(windowData);
-    windowObj.open(map, marker)
+    if(windowObj.windowIsOpen === false){
+        windowObj.setContent(windowData);
+        windowObj.open(map, marker);
+        windowObj.windowIsOpen = true
+    } else {
+      windowObj.close();
+      windowObj.windowIsOpen = false
+    }
   });
 }
 
@@ -63,9 +69,6 @@ function createInputSearchBox(){
   searchBox = new google.maps.places.SearchBox(searchInput);
   google.maps.event.addListener(searchBox, 'place_changed', function (){
     searchBox.getPlace();
-  });
-  google.maps.event.addListener(searchInput, 'click', function(){
-    searchInput.value = '';
   });
   return searchBox;
 };
