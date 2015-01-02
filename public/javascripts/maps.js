@@ -1,6 +1,8 @@
+var mapMarkers = [];
 var initialize = function(graffitiData){
   chicagoMap = drawChicagoMap();
-  addMapMarkers(graffitiData, chicagoMap);
+  createMapMarkers(graffitiData, chicagoMap);
+  setMapMarkers([mapMarkers[0]], chicagoMap);
   searchBox = createInputSearchBox();
   biasSearchBoxResults(searchBox);
 }
@@ -16,7 +18,13 @@ function drawChicagoMap(){
   return baseMap;
 }
 
-function addMapMarkers(chicagoData, map){
+function setMapMarkers(markers, map){
+ $.each(markers, function setMap(index, marker){
+   marker.setMap(map);
+ });
+}
+
+function createMapMarkers(chicagoData, map){
   $.each(chicagoData, function addMarkersForEach(index, dataRecord){
     createMapMarker(map, dataRecord);
   });
@@ -34,10 +42,11 @@ function createMapMarker(map, dataRecord){
     position: myLatLng,
     clickable: true,
     icon: '../style/red-marker.png',
-    map: map
+    map: null
   });
 
   bindInfoWindowData(map, newMapMarker, dataWindow, newMarkerLocationInformation);
+  mapMarkers.push(newMapMarker);
 };
 
 function bindInfoWindowData(map, marker, windowObj, windowData){
