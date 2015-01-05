@@ -16,5 +16,6 @@ var filterSearchWithUserInput = function filterSearch(map){
   searchButton.click(function( event ) {
     searchRequest = $('[data-name=search-bar]').val();
     convertUserInputAndSearch(searchRequest, map);
+    $('[value]').val("");
   });
 }

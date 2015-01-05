@@ -8,9 +8,9 @@ CHICAGO_GRAFFITI_REMOVAL_API = 'https://data.cityofchicago.org/resource/hec5-y4x
 class GraffitiRemovalTracker < Sinatra::Base
   def initialize
     super()
-    #     api_data = ChicagoApiDataPresenter.get_data(CHICAGO_GRAFFITI_REMOVAL_API)
-    #     @open_graffiti_requests =
-    #     ChicagoDataMasher.find_open_requests_with_days_since_request(api_data).to_json
+        # api_data = ChicagoApiDataPresenter.get_data(CHICAGO_GRAFFITI_REMOVAL_API)
+        # @open_graffiti_requests =
+        # ChicagoDataMasher.find_open_requests_with_days_since_request(api_data).to_json
     @open_graffiti_requests =
       [
         {
