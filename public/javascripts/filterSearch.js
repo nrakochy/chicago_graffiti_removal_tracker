@@ -16,6 +16,13 @@ var filterSearchWithUserInput = function filterSearch(map){
   searchButton.click(function( event ) {
     searchRequest = $('[data-name=search-bar]').val();
     convertUserInputAndSearch(searchRequest, map);
+    linkToChicagoWebsite();
     $('[value]').val("");
   });
+}
+
+function linkToChicagoWebsite() {
+  chicagoLink =
+    $('<h3>You can make a new graffiti removal request on the <a href="http://311request.cityofchicago.org/reports/new?service_id=4fd3b167e750846744000005" target="_blank">Chicago 311 website</a></h3>')
+  $('h3').replaceWith(chicagoLink);
 }
