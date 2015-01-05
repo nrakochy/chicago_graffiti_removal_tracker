@@ -1,19 +1,16 @@
-var searchBox;
-
-var initializeSearchBox = function initializeBox(map){
-  createInputSearchBox();
-  biasSearchBoxResults();
-  filterSearch(map);
+var initializeSearchBox = function initializeBox(){
+  searchBox = createInputSearchBox();
+  biasSearchBoxResults(searchBox);
 }
 
 function createInputSearchBox(){
   searchInput = (document.getElementById('box'));
-  searchBox = new google.maps.places.Autocomplete(searchInput);
+  return new google.maps.places.Autocomplete(searchInput);
 };
 
-function biasSearchBoxResults(){
+function biasSearchBoxResults(box){
   searchBounds = setCityBounds();
-  searchBox.setBounds(searchBounds);
+  box.setBounds(searchBounds);
 }
 
 function setCityBounds(){
@@ -24,23 +21,3 @@ function setCityBounds(){
 }
 
 
-function convertUserInputAndSearch(searchRequest, map){
-  geocoder = new google.maps.Geocoder();
-  geocoder.geocode({"address": searchRequest}, function(result, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      newLocation = result[0].geometry.location;
-      map.panTo(newLocation);
-      map.setZoom(14);
-    } else {
-      console.log('The call to Google api went wrong. Here is the reason: ' + status);
-    };
-  });
-}
-
-function filterSearch(map){
-  searchButton = $('[data-id=search]');
-  searchButton.click(function( event ) {
-    searchRequest = $('[data-name=search-bar]').val();
-    convertUserInputAndSearch(searchRequest, map);
-  });
-}
