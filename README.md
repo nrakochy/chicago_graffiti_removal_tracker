@@ -2,7 +2,6 @@
 See open requests for removal and make new ones
 
 #### TO-DO
-* Remove open infoWindow on second click
-* Set AJAX post call to reset map bounds to user input
-* Create form for posting new request to Chicago 311 site OR simple link
+* Update AutoComplete to choose first suggested answer on Enter : http://stackoverflow.com/questions/7865446/google-maps-places-api-v3-autocomplete-select-first-option-on-enter/11703018#11703018
+* Change Button input type from ‘click’ to ‘submit’ 
 * Small DB for serving cached requests in event of failed HTTP response

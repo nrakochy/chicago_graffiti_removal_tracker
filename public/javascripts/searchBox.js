@@ -5,7 +5,11 @@ var initializeSearchBox = function initializeBox(){
 
 function createInputSearchBox(){
   searchInput = (document.getElementById('box'));
-  return new google.maps.places.Autocomplete(searchInput);
+  newBox = new google.maps.places.SearchBox(searchInput);
+  google.maps.event.addListener(newBox, 'places_changed', function() {
+      searchBox.getPlaces();
+  });
+  return newBox;
 };
 
 function biasSearchBoxResults(box){
