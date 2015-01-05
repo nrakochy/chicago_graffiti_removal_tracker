@@ -87,17 +87,7 @@ class GraffitiRemovalTracker < Sinatra::Base
   end
 
   get '/' do
-    erb :index, :locals => { :openRequests => @open_graffiti_requests}
+    erb :index, :locals => { :openRequests => @open_graffiti_requests }
   end
 
-
-  get '/' do
-    erb :index, :locals => { :openRequests => @open_graffiti_requests}
-  end
-
-  #  post '/' do
-  #  location_request = params[:location]
-  #  matching_records = ChicagoDataMasher.find_by_zip_code(location, @open_graffiti_requests)
-  #  { message: matching_records }.to_jso
-  #  end
 end

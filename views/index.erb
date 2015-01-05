@@ -7,18 +7,19 @@
   <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
   <script src="javascripts/vendor/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="javascripts/maps.js"></script>
+  <script type="text/javascript" src="javascripts/searchBox.js"></script>
   <link rel="stylesheet" href="style/app.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="style/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>
   <h1>Chicago Graffiti Removal Tracker</h1>
   <h3>Find existing requests and make new ones for graffiti removal</h3>
-  <div class="form">
-    <form action='/' method= 'POST' name='locationSearch'>
-      <input type="text" class="search-bar" placeholder="Search by Zip Code"
-      name="location" id="searchLocation" value="">
-      <button type="button" class="search-btn">SEARCH</button>
-    </form>
+  <div class="searchOptions">
+    <input type="text" data-name="search-bar" class="search-bar" placeholder="Search by Zip Code or Street Address"
+      name="location" id="box" value=""  />
+      <button data-id="search" class="search-btn" >Search</button>
   </div>
 
   <div id="map-canvas">
@@ -27,8 +28,10 @@
   <script>
     $(document).ready(function(){
         openChicagoRequests= $.parseJSON('<%= openRequests %>');
-        initialize(openChicagoRequests);
+        chicagoMap = initializeMap(openChicagoRequests);
+        initializeSearchBox(chicagoMap);
     });
+
   </script>
 
 </body>

@@ -1,10 +1,12 @@
 var mapMarkers = [];
-var initialize = function(graffitiData){
+var baseMap;
+
+var initializeMap = function(graffitiData){
   chicagoMap = drawChicagoMap();
   createMapMarkers(graffitiData, chicagoMap);
-  setMapMarkers([mapMarkers[0]], chicagoMap);
-  searchBox = createInputSearchBox();
-  biasSearchBoxResults(searchBox);
+  setMapMarkers(mapMarkers, chicagoMap);
+  baseMap = chicagoMap;
+  return baseMap;
 }
 
 function drawChicagoMap(){
@@ -14,14 +16,14 @@ function drawChicagoMap(){
     center: chicagoCenterCoordinates,
     zoom: 11
   }
-  baseMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  return baseMap;
+  newMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  return newMap;
 }
 
 function setMapMarkers(markers, map){
- $.each(markers, function setMap(index, marker){
-   marker.setMap(map);
- });
+  $.each(markers, function setMap(index, marker){
+    marker.setMap(map);
+  });
 }
 
 function createMapMarkers(chicagoData, map){
@@ -35,7 +37,7 @@ function createMapMarker(map, dataRecord){
   newMarkerLocationInformation = setLocationInformation(dataRecord);
   google.maps.InfoWindow.prototype.windowIsOpen = false;
   dataWindow = new google.maps.InfoWindow({
-    content: null
+    content: ''
   })
 
   newMapMarker = new google.maps.Marker({
@@ -52,9 +54,9 @@ function createMapMarker(map, dataRecord){
 function bindInfoWindowData(map, marker, windowObj, windowData){
   google.maps.event.addListener(marker, 'click', function googleClickListener() {
     if(windowObj.windowIsOpen === false){
-        windowObj.setContent(windowData);
-        windowObj.open(map, marker);
-        windowObj.windowIsOpen = true
+      windowObj.setContent(windowData);
+      windowObj.open(map, marker);
+      windowObj.windowIsOpen = true
     } else {
       windowObj.close();
       windowObj.windowIsOpen = false
@@ -71,27 +73,6 @@ function setLocationInformation(dataRecord){
       '<h5>Zip Code:  '  + dataRecord['zip_code']                   + '</h5>' +
       '</div>')
   return locationInformation[0];
-}
-
-function createInputSearchBox(){
-  searchInput = (document.getElementById('searchLocation'));
-  searchBox = new google.maps.places.SearchBox(searchInput);
-  google.maps.event.addListener(searchBox, 'place_changed', function (){
-    searchBox.getPlace();
-  });
-  return searchBox;
-};
-
-function biasSearchBoxResults(inputSearchBox){
-    searchBounds = setSearchBoxBounds();
-    inputSearchBox.setBounds(searchBounds);
-}
-
-function setSearchBoxBounds(){
-  southwestCornerChicago = new google.maps.LatLng(41.6072, -87.8617);
-  northeastCornerChicago = new google.maps.LatLng(42.106111, -87.471111);
-  cityBounds = new google.maps.LatLngBounds(southwestCornerChicago, northeastCornerChicago);
-  return cityBounds;
 }
 
 
