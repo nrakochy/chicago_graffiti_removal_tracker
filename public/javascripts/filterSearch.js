@@ -1,23 +1,33 @@
-function convertUserInputAndSearch(searchRequest, map){
+function searchUserInputAndPlaceMarkers(searchRequest, map, mapMarkers){
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({"address": searchRequest}, function(result, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       newLocation = result[0].geometry.location;
+      console.log("BROKEN RIGHT HERE");
+      console.log(mapMarkers);
+      setMapMarkers(map, mapMarkers);
       map.panTo(newLocation);
       map.setZoom(14);
     } else {
+      setMapMarkers(map, mapMarkers);
       console.log('The call to Google api went wrong. Here is the reason: ' + status);
     };
   });
 }
 
-var filterSearchWithUserInput = function filterSearch(map){
+var filterSearchWithUserInput = function filterSearch(map, locationMarkers){
   searchButton = $('[data-id=search]');
   searchButton.click(function( event ) {
     searchRequest = $('[data-name=search-bar]').val();
-    convertUserInputAndSearch(searchRequest, map);
+    searchUserInputAndPlaceMarkers(searchRequest, map, locationMarkers);
     linkToChicagoWebsite();
     $('[value]').val("");
+  });
+}
+
+function setMapMarkers(map, mapMarkers){
+  $.each(mapMarkers, function setMap(index, marker){
+    marker.setMap(map);
   });
 }
 

@@ -1,12 +1,13 @@
 var mapMarkers = [];
 var baseMap;
 
-var initializeMap = function(graffitiData){
-  chicagoMap = drawChicagoMap();
+var initializeMap = function(){
+  return drawChicagoMap();
+}
+
+var initializeMapMarkers = function initializeMarkers(graffitiData, chicagoMap){
   createMapMarkers(graffitiData, chicagoMap);
-  setMapMarkers(mapMarkers, chicagoMap);
-  baseMap = chicagoMap;
-  return baseMap;
+  return mapMarkers;
 }
 
 function drawChicagoMap(){
@@ -18,12 +19,6 @@ function drawChicagoMap(){
   }
   newMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   return newMap;
-}
-
-function setMapMarkers(markers, map){
-  $.each(markers, function setMap(index, marker){
-    marker.setMap(map);
-  });
 }
 
 function createMapMarkers(chicagoData, map){

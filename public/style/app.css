@@ -26,7 +26,7 @@ a {
     color: Orange;
 }
 
-a:link{
+a:link {
     text-decoration: none;
 }
 
@@ -74,7 +74,6 @@ form {
 #map-canvas {
   height: 500px;
   width: 80%;
-  padding: 0px;
   margin: 3em;
   margin-left: auto;
   margin-right: auto;

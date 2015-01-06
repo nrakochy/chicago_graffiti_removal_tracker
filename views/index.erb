@@ -4,7 +4,7 @@
   <title>Graffiti Tracker</title>
   <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-  <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+  <script src="//maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places"></script>
   <script src="javascripts/vendor/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="javascripts/maps.js"></script>
   <script type="text/javascript" src="javascripts/searchBox.js"></script>
@@ -30,8 +30,9 @@
     $(document).ready(function(){
         openChicagoRequests= $.parseJSON('<%= openRequests %>');
         chicagoMap = initializeMap(openChicagoRequests);
+        openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
         initializeSearchBox();
-        filterSearchWithUserInput(chicagoMap);
+        filterSearchWithUserInput(chicagoMap, openRequestMarkers);
     });
 
   </script>

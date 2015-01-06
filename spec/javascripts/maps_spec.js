@@ -1,6 +1,11 @@
 describe("mapJs", function(){
-  it("sampleTestMethod", function() {
-    expect(testFunction()).toBe(true)
+  var googleMap;
+  beforeEach(function (){
+    googleMap = createSpyObject('maps',[])
+  });
+
+  it("drawChicagoMap", function() {
+    expect(drawChicagoMap()).toReturn(googleMap);
   })
 });
 
