@@ -1,5 +1,6 @@
 describe("mapJs", function(){
   var googleMap;
+
   beforeEach(function(){
     googleMap = GoogleMapsMock;
   });
@@ -11,10 +12,22 @@ describe("mapJs", function(){
   });
 
   describe("drawChicagoMap", function(){
+    it("drawsChicagoMap", function() {
+      var map = googleMap(){ google.maps.LatLng };
+      var originalConstructor = map, mapSpy;
+      spyOn(window, map).and.callFake(function() {
+        mapSpy = new originalConstructor();
+        spyOn(mapSpy, 'chicagoCenterCoordinates');
+        return mapSpy;
+      });
+      drawChicagoMap();
+      expect(mapSpy.chicagoCenterCoordinates).toHaveBeenCalled();
+    });
+  });
+
+  describe("createMapMarker", function(){
     it("should call the Google map constructor", function(){
-      newMap = new drawChicagoMap();
-      expect(newMap).toBeDefined();
-    })
+    });
   });
 
 });

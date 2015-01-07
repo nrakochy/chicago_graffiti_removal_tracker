@@ -11,13 +11,13 @@ var initializeMapMarkers = function initializeMarkers(graffitiData, chicagoMap){
 }
 
 function drawChicagoMap(){
-  chicagoCenterCoordinates = new google.maps.LatLng(41.8789, -87.6358);
+  var chicagoCenterCoordinates = new google.maps.LatLng(41.8789, -87.6358);
 
-  mapOptions = {
+  var mapOptions = {
     center: chicagoCenterCoordinates,
     zoom: 11
   }
-  newMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var newMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   return newMap;
 }
 
@@ -28,14 +28,14 @@ function createMapMarkers(chicagoData, map){
 };
 
 function createMapMarker(map, dataRecord){
-  myLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
-  newMarkerLocationInformation = setLocationInformation(dataRecord);
+  var myLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
+  var newMarkerLocationInformation = setLocationInformation(dataRecord);
   google.maps.InfoWindow.prototype.windowIsOpen = false;
-  dataWindow = new google.maps.InfoWindow({
+  var dataWindow = new google.maps.InfoWindow({
     content: ''
   })
 
-  newMapMarker = new google.maps.Marker({
+  var newMapMarker = new google.maps.Marker({
     position: myLatLng,
     clickable: true,
     icon: '../style/red-marker.png',
@@ -60,7 +60,7 @@ function bindInfoWindowData(map, marker, windowObj, windowData){
 }
 
 function setLocationInformation(dataRecord){
-  locationInformation =
+  var locationInformation =
     $('<div class="mapInfoWindow">'+
       '<h4>'             + dataRecord['street_address']             + '</h4>' +
       '<h5>Days Open:  ' + dataRecord['days_elapsed_since_request'] + '</h5>' +
