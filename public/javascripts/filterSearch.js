@@ -3,8 +3,6 @@ function searchUserInputAndPlaceMarkers(searchRequest, map, mapMarkers){
   geocoder.geocode({"address": searchRequest}, function(result, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var newLocation = result[0].geometry.location;
-      console.log("BROKEN RIGHT HERE");
-      console.log(mapMarkers);
       setMapMarkers(map, mapMarkers);
       map.panTo(newLocation);
       map.setZoom(14);
@@ -21,7 +19,7 @@ var filterSearchWithUserInput = function filterSearch(map, locationMarkers){
     searchRequest = $('[data-name=search-bar]').val();
     searchUserInputAndPlaceMarkers(searchRequest, map, locationMarkers);
     linkToChicagoWebsite();
-    $('[value]').val("");
+    resetSearchBar();
   });
 }
 
@@ -32,7 +30,12 @@ function setMapMarkers(map, mapMarkers){
 }
 
 function linkToChicagoWebsite() {
-  var chicagoLink =
-    $('You can make a new graffiti removal request on the <a href="http://311request.cityofchicago.org/reports/new?service_id=4fd3b167e750846744000005" target="_blank">Chicago 311 website</a>')
-  $('h3').replaceWith(chicagoLink);
+  var link = "<h1>You can make a new graffiti removal request on the <a href='http://311request.cityofchicago.org/reports/new?service_id=4fd3b167e750846744000005' target='_blank'>Chicago 311 website</a></h1>"
+  var chicagoLink = $($.parseHTML(link))
+  $('h1').replaceWith(chicagoLink);
+  $('h3').replaceWith($(''));
+}
+
+function resetSearchBar(){
+  $('[value]').val("");
 }

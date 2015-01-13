@@ -7,7 +7,7 @@ function createInputSearchBox(){
   var searchInput = (document.getElementById('box'));
   var newBox = new google.maps.places.SearchBox(searchInput);
   google.maps.event.addListener(newBox, 'places_changed', function() {
-      searchBox.getPlaces();
+      newBox.getPlaces();
   });
   return newBox;
 };
