@@ -18,30 +18,30 @@ h1 {
 
 h3 {
   font-family: 'Open Sans', Georgia, Times;
-  font-size : 1.8em;
-
+  font-size: 3.6em;
 }
 
 a {
-    color: Orange;
+  color: Orange;
 }
 
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    color: LightGray;
+  color: LightGray;
 }
 
 a:active {
-    color: Whitesmoke;
+  color: Whitesmoke;
 }
 
 form {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: fixed;
+  z-index: 5000;
+  width: 33%;
+  float: right;
 }
 
 .search-bar {
@@ -51,29 +51,60 @@ form {
   color: WhiteSmoke;
   font-size: 3.0vmin;
   font-family: 'Open Sans', Georgia, Times;
-  width: 70%;
+  width: 80%;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 0px;
+  border-radius: 8px 0px 0px 8px;
+  position: relative;
 }
 
 .search-btn{
+  position: relative;
   padding: 1.0em 1.0em;
   background: WhiteSmoke;
-  color: #032536;
+  color: #27556C;
   font-size: 3.0vmin;
   font-family: 'Open Sans', Georgia, Times, serif;
   width: 10%;
-  margin-left: auto;
+  margin-left: 0px;
   margin-right: auto;
+  border: solid transparent;
 }
 
 .search-btn:hover {
+  background: LightGray;
+}
+
+.arrow {
+  position: fixed;
+  background: WhiteSmoke;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.arrow:after {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-right-color: WhiteSmoke;
+  border-width: 20px;
+  margin-top: -20px;
+  font-size: 3.0vmin;
+}
+
+.arrow:hover {
   background:  LightGray;
 }
 
+
 #map-canvas {
   height: 500px;
-  width: 80%;
+  width: 81%;
   margin: 3em;
   margin-left: auto;
   margin-right: auto;
@@ -82,15 +113,15 @@ form {
 }
 
 .mapInfoWindow{
-    font-family: 'Raleway', Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    background: WhiteSmoke;
-    border-radius: 8px;
-    color: #27556C;
-    text-align:center;
-    overflow:hidden;
-    text-transform:uppercase;
-    float:right;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  background: WhiteSmoke;
+  border-radius: 8px;
+  color: #27556C;
+  text-align:center;
+  overflow:hidden;
+  text-transform:uppercase;
+  float:right;
 }
 
 
