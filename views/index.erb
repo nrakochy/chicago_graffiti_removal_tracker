@@ -27,7 +27,7 @@
         </label>
         <label>
           <span class="arrow">
-            <button data-id="search" class="search-btn" type="click" >Search</button>
+            <button data-id="search" class="search-btn" type="submit" >Search</button>
           </span>
         </label>
       </form>
@@ -39,11 +39,11 @@
 
   <script>
     $(document).ready(function(){
-    openChicagoRequests= $.parseJSON('<%= openRequests %>');
-    chicagoMap = initializeMap(openChicagoRequests);
-    openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
-    initializeSearchBox();
-    filterSearchWithUserInput(chicagoMap, openRequestMarkers);
+        openChicagoRequests= $.parseJSON('<%= openRequests %>');
+        chicagoMap = initializeMap(openChicagoRequests);
+        openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
+        initializeSearchBox();
+        filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
     });
   </script>
 

@@ -1,18 +1,4 @@
-function centerMapOnUserInput(searchRequest, map){
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({"address": searchRequest}, function(result, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      var newLocation = result[0].geometry.location;
-      map.setZoom(14);
-      map.panTo(newLocation);
-    } else {
-      map.setZoom(12);
-      console.log('The call to Google api went wrong. Here is the reason: ' + status);
-    };
-  });
-}
-
-var filterSearchWithUserInput = function filterSearch(map, locationMarkers){
+var filterSearchWithUserInputAndLinkToChicagoWebsite = function filterSearch(map, locationMarkers){
   var searchForm = $('[id=searchForm]');
   searchForm.submit(function( event ) {
     event.preventDefault();
@@ -24,8 +10,23 @@ var filterSearchWithUserInput = function filterSearch(map, locationMarkers){
   });
 }
 
+
+function centerMapOnUserInput(searchRequest, map){
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({"address": searchRequest}, function(result, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      var newLocation = result[0].geometry.location;
+      map.setZoom(14);
+      map.panTo(newLocation);
+    } else {
+      map.setZoom(14);
+      console.log('The call to Google api went wrong. Here is the reason: ' + status);
+    };
+  });
+}
+
 function setMapMarkers(map, mapMarkers){
-  google.maps.event.addListenerOnce(map, 'idle', function(){
+  google.maps.event.addListener(map, 'idle', function(){
     $.each(mapMarkers, function setMap(index, marker){
       marker.setMap(map);
     });

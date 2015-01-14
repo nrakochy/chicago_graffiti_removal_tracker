@@ -1,5 +1,6 @@
 var mapMarkers = [];
 var baseMap;
+var zIndex = 1;
 
 var initializeMap = function(){
   return drawChicagoMap();
@@ -32,7 +33,8 @@ function createMapMarker(map, dataRecord){
   var newMarkerLocationInformation = setLocationInformation(dataRecord);
   google.maps.InfoWindow.prototype.windowIsOpen = false;
   var dataWindow = new google.maps.InfoWindow({
-    content: ''
+    content: '',
+    zIndex: 50
   })
 
   var newMapMarker = new google.maps.Marker({
@@ -51,9 +53,13 @@ function bindInfoWindowData(map, marker, windowObj, windowData){
     if(windowObj.windowIsOpen === false){
       windowObj.setContent(windowData);
       windowObj.open(map, marker);
+      windowObj.setZIndex(6000 + zIndex++);
+      console.log(windowObj.getZIndex());
       windowObj.windowIsOpen = true
     } else {
       windowObj.close();
+      windowObj.setZIndex(50);
+      console.log(windowObj.getZIndex());
       windowObj.windowIsOpen = false
     }
   });
