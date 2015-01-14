@@ -16,30 +16,36 @@
 
 <body>
   <h1>Chicago Graffiti Removal Tracker</h1>
-  <h3 id="site-description">Find existing requests for graffiti removal</h3>
+  <div class="display-container">
+    <div class="form-container">
+      <form id="searchForm" class="searchOptions" action='\'>
+        <label>
+          <span id="form-instructions"></span>
+          <input type="text" data-name="search-bar" class="search-bar"
+          placeholder="Search existing requests for graffiti removal by street address"
+          name="location" id="box" value=""  />
+        </label>
+        <label>
+          <span class="arrow">
+            <button data-id="search" class="search-btn" type="click" >Search</button>
+          </span>
+        </label>
+      </form>
+    </div>
 
-<div class="temporary">
-  <form class="searchOptions" action='/'>
-    <input type="text" data-name="search-bar" class="search-bar" placeholder="Search by Street Address"
-    name="location" id="box" value=""  />
-    <span class="arrow">
-      <button data-id="search" class="search-btn" type="submit" >Search</button>
-    </span>
-  </form>
-</div>
+    <div id="map-canvas">
+    </div>
+  </div>
 
-<div id="map-canvas">
-</div>
-
-<script>
-  $(document).ready(function(){
-  openChicagoRequests= $.parseJSON('<%= openRequests %>');
-  chicagoMap = initializeMap(openChicagoRequests);
-  openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
-  initializeSearchBox();
-  filterSearchWithUserInput(chicagoMap, openRequestMarkers);
-  });
-</script>
+  <script>
+    $(document).ready(function(){
+    openChicagoRequests= $.parseJSON('<%= openRequests %>');
+    chicagoMap = initializeMap(openChicagoRequests);
+    openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
+    initializeSearchBox();
+    filterSearchWithUserInput(chicagoMap, openRequestMarkers);
+    });
+  </script>
 
 </body>
 </html>

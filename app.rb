@@ -91,8 +91,8 @@ class GraffitiRemovalTracker < Sinatra::Base
   end
 
   post '/' do
-    halt 200
     erb :index, :locals => { :openRequests => @open_graffiti_requests }
   end
 
 end
+

@@ -1,25 +1,24 @@
 body {
   background: #27556C;
   color: WhiteSmoke;
-  line-height: 1.5;
+  line-height: 2.0;
   font-size: 62.5%;
-  text-align: center;
-  width: 100%;
-  height: 100%;
   margin: 0px;
   padding: 0px;
-  position: absolute;
 }
 
 h1 {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-size: 5.2em;
+  text-align: center;
 }
 
-h3 {
-  font-family: 'Open Sans', Georgia, Times;
+h2 {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-size: 3.6em;
+  text-align: center;
 }
+
 
 a {
   color: Orange;
@@ -37,79 +36,79 @@ a:active {
   color: Whitesmoke;
 }
 
-form {
-  position: fixed;
-  z-index: 5000;
-  width: 33%;
-  float: right;
+.display-container {
+  height: 500px;
 }
 
-.search-bar {
-  padding: 1.0em 1.0em;
+.form-container .searchOptions {
+  position: fixed;
+  z-index: 5000;
+  border-radius: 8px;
+  width: 50%;
+  right: 15%;
+  margin-right: 2.0em;
+  margin-top: 4.0em;
+}
+
+.searchOptions #form-instructions {
+  font-family: 'Open Sans', Georgia, Times;
+  text-align: center;
+}
+
+.searchOptions .search-bar {
+  padding: 1.75em;
   background: #032536;
   border: 0px solid #dbdbdb;
   color: WhiteSmoke;
-  font-size: 3.0vmin;
+  font-size: 1.6em;
   font-family: 'Open Sans', Georgia, Times;
-  width: 80%;
-  margin-left: auto;
-  margin-right: 0px;
+  width: 90%;
   border-radius: 8px 0px 0px 8px;
   position: relative;
 }
 
-.search-btn{
-  position: relative;
-  padding: 1.0em 1.0em;
+.searchOptions .search-btn{
+  padding: 1.75em;
   background: WhiteSmoke;
   color: #27556C;
-  font-size: 3.0vmin;
+  font-size: 1.6em;
   font-family: 'Open Sans', Georgia, Times, serif;
   width: 10%;
-  margin-left: 0px;
-  margin-right: auto;
   border: solid transparent;
+  border-radius: 0px 8px 8px 0px;
+  position: fixed;
+  text-align: center;
 }
 
 .search-btn:hover {
-  background: LightGray;
+  cursor: pointer;
+  background:  LightGray;
 }
 
-.arrow {
-  position: fixed;
+.searchOptions .arrow {
+  position: relative;
   background: WhiteSmoke;
-  border-radius: 0px 8px 8px 0px;
 }
 
 .arrow:after {
   right: 100%;
   top: 50%;
   border: solid transparent;
-  content: " ";
+  content: "";
   height: 0;
   width: 0;
   position: absolute;
-  pointer-events: none;
-  border-color: rgba(0, 0, 0, 0);
   border-right-color: WhiteSmoke;
   border-width: 20px;
   margin-top: -20px;
-  font-size: 3.0vmin;
 }
 
-.arrow:hover {
-  background:  LightGray;
-}
-
-
-#map-canvas {
-  height: 500px;
-  width: 81%;
-  margin: 3em;
+.display-container #map-canvas {
+  height: 100%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Open Sans', Georgia, Times, serif;
-
+  border-radius: 8px;
 }
 
 .mapInfoWindow{
