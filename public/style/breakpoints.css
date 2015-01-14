@@ -1,0 +1,24 @@
+body:after {
+  content: "Default";
+  left: 50%;
+  position: fixed;
+  top: 0;
+}
+ 
+@media only screen and (max-width: 600px) {
+  body:after {
+    content: "Small";
+  }
+}
+ 
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  body:after {
+    content: "Medium";
+  }
+}
+ 
+@media only screen and (min-width: 1201px) {
+  body:after {
+    content: "Large";
+  }
+}

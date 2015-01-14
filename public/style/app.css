@@ -19,7 +19,6 @@ h2 {
   text-align: center;
 }
 
-
 a {
   color: Orange;
 }
@@ -37,7 +36,7 @@ a:active {
 }
 
 .display-container {
-  height: 500px;
+    height: 500px;
 }
 
 .form-container .searchOptions {
@@ -122,7 +121,122 @@ a:active {
   text-transform:uppercase;
   float:right;
 }
+}
 
+
+@media only screen and (min-width: 1201px) {
+  .display-container {
+    height: 500px;
+}
+
+.form-container .searchOptions {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 8px;
+  width: 50%;
+  right: 15%;
+  margin-right: 2.0em;
+  margin-top: 4.0em;
+}
+
+.searchOptions #form-instructions {
+  font-family: 'Open Sans', Georgia, Times;
+  text-align: center;
+}
+
+.searchOptions .search-bar {
+  padding: 1.75em;
+  background: #032536;
+  border: 0px solid #dbdbdb;
+  color: WhiteSmoke;
+  font-size: 1.6em;
+  font-family: 'Open Sans', Georgia, Times;
+  width: 90%;
+  border-radius: 8px 0px 0px 8px;
+  position: relative;
+}
+
+.searchOptions .search-btn{
+  padding: 1.75em;
+  background: WhiteSmoke;
+  color: #27556C;
+  font-size: 1.6em;
+  font-family: 'Open Sans', Georgia, Times, serif;
+  width: 10%;
+  border: solid transparent;
+  border-radius: 0px 8px 8px 0px;
+  position: fixed;
+  text-align: center;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+  background:  LightGray;
+}
+
+.searchOptions .arrow {
+  position: relative;
+  background: WhiteSmoke;
+}
+
+.arrow:after {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-right-color: WhiteSmoke;
+  border-width: 20px;
+  margin-top: -20px;
+}
+
+.display-container #map-canvas {
+  height: 100%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+.mapInfoWindow{
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  background: WhiteSmoke;
+  border-radius: 8px;
+  color: #27556C;
+  text-align:center;
+  overflow:hidden;
+  text-transform:uppercase;
+  float:right;
+}
+}
+
+body:after {
+  content: "Default";
+  left: 50%;
+  position: fixed;
+  top: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  body:after {
+    content: "Small";
+}
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  body:after {
+    content: "Medium";
+}
+}
+
+@media only screen and (min-width: 1201px) {
+  body:after {
+    content: "Large";
+}
+}
 
 /*
 Color Palette
