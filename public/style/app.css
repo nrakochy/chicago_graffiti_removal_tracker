@@ -9,13 +9,11 @@ body {
 
 h1 {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 5.2em;
   text-align: center;
 }
 
 h2 {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 3.6em;
   text-align: center;
 }
 
@@ -36,46 +34,29 @@ a:active {
 }
 
 .display-container {
-    height: 500px;
+  height: 500px;
 }
 
 .form-container .searchOptions {
   position: fixed;
   z-index: 1000;
   border-radius: 8px;
-  width: 50%;
-  right: 15%;
-  margin-right: 2.0em;
-  margin-top: 4.0em;
-}
-
-.searchOptions #form-instructions {
-  font-family: 'Open Sans', Georgia, Times;
-  text-align: center;
 }
 
 .searchOptions .search-bar {
-  padding: 1.75em;
   background: #032536;
   border: 0px solid #dbdbdb;
   color: WhiteSmoke;
-  font-size: 1.6em;
   font-family: 'Open Sans', Georgia, Times;
-  width: 90%;
   border-radius: 8px 0px 0px 8px;
-  position: relative;
 }
 
 .searchOptions .search-btn{
-  padding: 1.75em;
   background: WhiteSmoke;
   color: #27556C;
-  font-size: 1.6em;
   font-family: 'Open Sans', Georgia, Times, serif;
-  width: 10%;
   border: solid transparent;
   border-radius: 0px 8px 8px 0px;
-  position: fixed;
   text-align: center;
 }
 
@@ -85,7 +66,6 @@ a:active {
 }
 
 .searchOptions .arrow {
-  position: relative;
   background: WhiteSmoke;
 }
 
@@ -121,62 +101,124 @@ a:active {
   text-transform:uppercase;
   float:right;
 }
+
+@media only screen and (max-width: 746px) {
+
+  h1 {
+    font-size: 3.6em;
+}
+
+h2 {
+  font-size: 2.0em;
+}
+
+.form-container .searchOptions {
+  width: 100%;
+  margin-top: 3.0em;
+  left: 5%;
+}
+
+.searchOptions .search-bar {
+  padding: 1.0em 1.0em 1.0em .5em;
+  font-size: 1.4em;
+  width: 70%;
+  position: relative;
+}
+
+.searchOptions .search-btn{
+  padding: 1.0em 1.0em 1.0em .5em;
+  font-size: 1.4em;
+  width: 10%;
+  position: relative;
+}
+
+.searchOptions .arrow {
+  position: relative;
+}
+
+.mapInfoWindow{
+  font-size: 1em;
+  float:right;
+}
+
+}
+
+@media only screen and (min-width: 746px) and (max-width: 1200px) {
+
+  h1 {
+    font-size: 5.2em;
+}
+
+h2 {
+  font-size: 3.6em;
+}
+
+
+.form-container .searchOptions {
+  width: 80%;
+  margin-right: 1.0em;
+  margin-top: 3.0em;
+  right: 10%;
+}
+
+.searchOptions .search-bar {
+  padding: 1.0em 1.0em 1.0em .5em;
+  font-size: 1.4em;
+  width: 80%;
+  position: relative;
+}
+
+.searchOptions .search-btn{
+  padding: 1.0em 1.0em 1.0em .5em;
+  font-size: 1.4em;
+  width: 10%;
+  position: relative;
+}
+
+.searchOptions .arrow {
+  position: relative;
+}
+
+.mapInfoWindow{
+  font-size: 1em;
+  float:right;
+}
+
 }
 
 
 @media only screen and (min-width: 1201px) {
-  .display-container {
-    height: 500px;
+
+  h1 {
+    font-size: 5.2em;
 }
 
+h2 {
+  font-size: 3.6em;
+}
 .form-container .searchOptions {
-  position: fixed;
-  z-index: 1000;
-  border-radius: 8px;
+  margin-right: 1.5em;
+  margin-top: 4.0em;
   width: 50%;
   right: 15%;
-  margin-right: 2.0em;
-  margin-top: 4.0em;
-}
-
-.searchOptions #form-instructions {
-  font-family: 'Open Sans', Georgia, Times;
-  text-align: center;
 }
 
 .searchOptions .search-bar {
   padding: 1.75em;
-  background: #032536;
-  border: 0px solid #dbdbdb;
-  color: WhiteSmoke;
   font-size: 1.6em;
-  font-family: 'Open Sans', Georgia, Times;
   width: 90%;
-  border-radius: 8px 0px 0px 8px;
   position: relative;
 }
 
 .searchOptions .search-btn{
   padding: 1.75em;
-  background: WhiteSmoke;
-  color: #27556C;
   font-size: 1.6em;
-  font-family: 'Open Sans', Georgia, Times, serif;
   width: 10%;
-  border: solid transparent;
-  border-radius: 0px 8px 8px 0px;
   position: fixed;
-  text-align: center;
-}
-
-.search-btn:hover {
-  cursor: pointer;
-  background:  LightGray;
 }
 
 .searchOptions .arrow {
   position: relative;
-  background: WhiteSmoke;
 }
 
 .arrow:after {
@@ -192,23 +234,8 @@ a:active {
   margin-top: -20px;
 }
 
-.display-container #map-canvas {
-  height: 100%;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-}
-
 .mapInfoWindow{
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   font-size: 1em;
-  background: WhiteSmoke;
-  border-radius: 8px;
-  color: #27556C;
-  text-align:center;
-  overflow:hidden;
-  text-transform:uppercase;
   float:right;
 }
 }
@@ -220,13 +247,13 @@ body:after {
   top: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 746px) {
   body:after {
     content: "Small";
 }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1200px) {
+@media only screen and (min-width: 746px) and (max-width: 1200px) {
   body:after {
     content: "Medium";
 }
