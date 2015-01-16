@@ -7,6 +7,7 @@
   <script src="//maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places"></script>
   <script src="javascripts/vendor/jquery-2.1.3.js"></script>
   <script type="text/javascript" src="javascripts/maps.js"></script>
+  <script type="text/javascript" src="javascripts/mapMarkers.js"></script>
   <script type="text/javascript" src="javascripts/searchBox.js"></script>
   <script type="text/javascript" src="javascripts/filterSearch.js"></script>
   <link rel="stylesheet" href="style/app.css">
@@ -19,17 +20,10 @@
   <div class="display-container">
     <div class="form-container">
       <form id="searchForm" class="searchOptions" action='\'>
-        <label>
-          <span id="form-instructions"></span>
-          <input type="text" data-name="search-bar" class="search-bar"
-          placeholder="Search existing requests for graffiti removal by street address"
-          name="location" id="box" value=""  />
-        </label>
-        <label>
-          <span class="arrow">
-            <button data-id="search" class="search-btn" type="submit" >Search</button>
-          </span>
-        </label>
+          <label for="box">Search</label>
+          <input type="search" data-name="search-bar" class="search-bar"
+          placeholder="Search requests for graffiti removal by street address"
+          name="location" id="box" value="" autofocus="autofocus"  />
       </form>
     </div>
 
@@ -39,11 +33,11 @@
 
   <script>
     $(document).ready(function(){
-        openChicagoRequests= $.parseJSON('<%= openRequests %>');
-        chicagoMap = initializeMap(openChicagoRequests);
-        openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
-        initializeSearchBox();
-        filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
+    openChicagoRequests= $.parseJSON('<%= openRequests %>');
+    chicagoMap = initializeMap();
+    openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
+    initializeSearchBox();
+    filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
     });
   </script>
 
