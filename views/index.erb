@@ -19,7 +19,7 @@
   <h1>Chicago Graffiti Removal Tracker</h1>
   <div class="display-container">
     <div class="form-container">
-      <form id="searchForm" class="searchOptions" action='\'>
+      <form id="searchForm" class="searchOptions" action='/'>
           <label for="box">Search</label>
           <input type="search" data-name="search-bar" class="search-bar"
           placeholder="Search requests for graffiti removal by street address"
@@ -33,11 +33,16 @@
 
   <script>
     $(document).ready(function(){
-    openChicagoRequests= $.parseJSON('<%= openRequests %>');
-    chicagoMap = initializeMap();
-    openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap)
-    initializeSearchBox();
-    filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
+        chicagoMap = initializeMap();
+        initializeSearchBox();
+
+        $('[id=searchForm]').submit(function(event){
+            event.preventDefault();
+            var request = $('[data-name=search-bar]').val();
+            var openChicagoRequests= $.parseJSON('<%= openRequests %>');
+            var openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap);
+            filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers, request);
+    });
     });
   </script>
 
