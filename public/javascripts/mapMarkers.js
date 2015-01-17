@@ -1,6 +1,8 @@
 var mapMarkers = [];
+var globalInfoWindow;
 
 var initializeMapMarkers = function initializeMarkers(graffitiData, chicagoMap){
+  initializeInfoWindow();
   createMapMarkers(graffitiData, chicagoMap);
   return mapMarkers;
 }
@@ -14,11 +16,6 @@ function createMapMarkers(chicagoData, map){
 function createMapMarker(map, dataRecord){
   var myLatLng = new google.maps.LatLng(dataRecord['latitude'],dataRecord['longitude']);
   var newMarkerLocationInformation = setLocationInformation(dataRecord);
-  google.maps.InfoWindow.prototype.windowIsOpen = false;
-  var dataWindow = new google.maps.InfoWindow({
-    content: '',
-  })
-
   var newMapMarker = new google.maps.Marker({
     position: myLatLng,
     clickable: true,
@@ -27,20 +24,20 @@ function createMapMarker(map, dataRecord){
     map: null
   });
 
-  bindInfoWindowData(map, newMapMarker, dataWindow, newMarkerLocationInformation);
+  bindInfoWindowData(map, newMapMarker, globalInfoWindow, newMarkerLocationInformation);
   mapMarkers.push(newMapMarker);
+}
+
+function initializeInfoWindow(){
+  globalInfoWindow = new google.maps.InfoWindow({
+    content: '',
+  })
 };
 
 function bindInfoWindowData(map, marker, windowObj, windowData){
   google.maps.event.addListener(marker, 'click', function googleClickListener() {
-    if(windowObj.windowIsOpen === false){
       windowObj.setContent(windowData);
       windowObj.open(map, marker);
-      windowObj.windowIsOpen = true
-    } else {
-      windowObj.close();
-      windowObj.windowIsOpen = false
-    }
   });
 }
 
