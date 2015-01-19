@@ -57,6 +57,7 @@ input {
 }
 
 .display-container .search-bar {
+  -webkit-appearance: none;
   width: 100%;
   background: #032536;
   border: 0px solid #dbdbdb;

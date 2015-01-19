@@ -20,7 +20,7 @@ function createMapMarker(map, dataRecord){
     position: myLatLng,
     clickable: true,
     icon: '../images/red-marker.png',
-    maxWidth: 150,
+    maxWidth: 200,
     map: null
   });
 

@@ -4,7 +4,6 @@ var filterSearchWithUserInputAndLinkToChicagoWebsite = function filterSearch(map
     searchRequest = $('[data-name=search-bar]').val();
     centerMapOnUserInput(searchRequest, map);
     linkToChicagoWebsite();
-    resetSearchBar();
     setMapMarkers(map, locationMarkers);
   });
 }
@@ -28,6 +27,7 @@ function setMapMarkers(map, mapMarkers){
     $.each(mapMarkers, function setMap(index, marker){
       marker.setMap(map);
     });
+    resetSearchBar();
   })
 }
 
