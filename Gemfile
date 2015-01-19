@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
+ruby "2.1.0"
 
 gem 'sinatra', :require => 'sinatra/base'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
-gem 'ruby', '~> 2.2.0'
+gem 'unicorn', '~> 4.8.3'
 
 group :test do
   gem 'rspec', '~> 3.1.0'
