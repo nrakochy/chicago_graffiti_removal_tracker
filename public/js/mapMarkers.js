@@ -29,7 +29,6 @@ function createMapMarker(map, dataRecord){
 }
 
 function initializeInfoWindow(){
-  google.maps.InfoWindow.prototype.WindowIsOpen = false;
   globalInfoWindow = new google.maps.InfoWindow({
     content: '',
   })
@@ -37,14 +36,8 @@ function initializeInfoWindow(){
 
 function bindInfoWindowData(map, marker, windowObj, windowData){
   google.maps.event.addListener(marker, 'click', function googleClickListener() {
-    if(windowObj.windowIsOpen === false){
       windowObj.setContent(windowData);
       windowObj.open(map, marker);
-      windowObj.windowIsOpen = true
-    } else {
-      windowObj.close();
-      windowObj.windowIsOpen = false;
-    }
   });
 }
 
