@@ -29,14 +29,9 @@
     $(document).ready(function(){
         chicagoMap = initializeMap();
         initializeSearchBox();
-
-        $.get('/location'), (function(event){
-            event.preventDefault();
-            var request = $('[data-name=search-bar]').val();
-            var openChicagoRequests= $.parseJSON('<%= openRequests %>');
-            var openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap);
-            filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers, request);
-    });
+        var openChicagoRequests= $.parseJSON('<%= openRequests %>');
+        var openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap);
+        filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
     });
   </script>
 

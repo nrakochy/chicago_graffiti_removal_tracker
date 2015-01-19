@@ -19,7 +19,7 @@ function createMapMarker(map, dataRecord){
   var newMapMarker = new google.maps.Marker({
     position: myLatLng,
     clickable: true,
-    icon: '../style/red-marker.png',
+    icon: '../images/red-marker.png',
     maxWidth: 150,
     map: null
   });

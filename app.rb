@@ -26,19 +26,14 @@ class GraffitiRemovalTracker < Sinatra::Base
   ]
 
   js_compression  :jsmin
+  prebuild true
   }
 
   get '/' do
     @open_graffiti_requests = call_external_api
-    @empty_requests = []
-    erb :index, :locals => { :openRequests => @empty_requests }
-
-  end
-
-  get '/location' do
     erb :index, :locals => { :openRequests => @open_graffiti_requests }
-  end
 
+  end
 
   def call_external_api
     api_data = ChicagoApiDataPresenter.get_data(CHICAGO_GRAFFITI_REMOVAL_API)
