@@ -5,14 +5,8 @@
   <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
   <script src="//maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places"></script>
-  <script src="javascripts/vendor/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="javascripts/maps.js"></script>
-  <script type="text/javascript" src="javascripts/mapMarkers.js"></script>
-  <script type="text/javascript" src="javascripts/searchBox.js"></script>
-  <script type="text/javascript" src="javascripts/filterSearch.js"></script>
-  <link rel="stylesheet" href="style/app.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-  <link rel="shortcut icon" href="style/favicon.ico" type="image/x-icon"/>
+  <%= js :app %>
+  <%= css :application %>
 </head>
 
 <body>
@@ -36,7 +30,7 @@
         chicagoMap = initializeMap();
         initializeSearchBox();
 
-        $('[id=searchForm]').submit(function(event){
+        $.get('/location'), (function(event){
             event.preventDefault();
             var request = $('[data-name=search-bar]').val();
             var openChicagoRequests= $.parseJSON('<%= openRequests %>');
