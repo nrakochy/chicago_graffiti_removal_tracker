@@ -13,6 +13,9 @@ class GraffitiRemovalTracker < Sinatra::Base
 
 
   assets {
+    serve '/js', from: 'public/js'
+    serve '/css', from: 'public/css'
+
     js :app, '/js/app.js', [
       '/js/vendor/jquery-2.1.3.js',
       '/js/filterSearch.js',
