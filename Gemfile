@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra', :require => 'sinatra/base'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+gem 'ruby', '~> 2.2.0'
 
 group :test do
   gem 'rspec', '~> 3.1.0'
