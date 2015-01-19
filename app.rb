@@ -21,7 +21,8 @@ class GraffitiRemovalTracker < Sinatra::Base
       '/js/filterSearch.js',
       '/js/mapMarkers.js',
       '/js/maps.js',
-      '/js/searchBox.js'
+      '/js/searchBox.js',
+      '//maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places'
   ]
 
   css :application, '/css/application.css', [
