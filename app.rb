@@ -34,8 +34,8 @@ class GraffitiRemovalTracker < Sinatra::Base
 
 configure :production do
     assets {
-        serve '/js',  from: './js'
-        serve '/css', from: './css'
+        serve '/js',  from: '/js'
+        serve '/css', from: '/css'
     }
 end
 
