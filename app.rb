@@ -30,6 +30,7 @@ class GraffitiRemovalTracker < Sinatra::Base
   ]
 
   js_compression  :jsmin
+  prebuild true
   }
 
 configure :production do
