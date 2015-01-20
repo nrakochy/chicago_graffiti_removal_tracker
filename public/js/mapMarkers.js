@@ -35,9 +35,13 @@ function initializeInfoWindow(){
 };
 
 function bindInfoWindowData(map, marker, windowObj, windowData){
+  google.maps.event.addListener(map, 'click', function googleClickListener() {
+    windowObj.close();
+  });
+
   google.maps.event.addListener(marker, 'click', function googleClickListener() {
-      windowObj.setContent(windowData);
-      windowObj.open(map, marker);
+    windowObj.setContent(windowData);
+    windowObj.open(map, marker);
   });
 }
 
