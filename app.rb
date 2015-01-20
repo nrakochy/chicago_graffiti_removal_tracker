@@ -33,6 +33,13 @@ class GraffitiRemovalTracker < Sinatra::Base
   prebuild true
   }
 
+configure :production do
+    assets {
+        serve '/js',  from: 'current/assets/js'
+        serve '/css', from: 'current/assets/css'
+    }
+end
+
   get '/' do
     @open_graffiti_requests = call_external_api
     erb :index, :locals => { :openRequests => @open_graffiti_requests }
@@ -49,6 +56,8 @@ end
 #   <script type="text/javascript" src="javascripts/maps.js"></script>
 #   <script type="text/javascript" src="javascripts/mapMarkers.js"></script>
 #   <script type="text/javascript" src="javascripts/searchBox.js"></script>
+#                      end
+#  } <script type="text/javascript" src="javascripts/searchBox.js"></script>
 #   <script type="text/javascript" src="javascripts/filterSearch.js"></script>
 
 #<link rel="stylesheet" href="style/app.css">
