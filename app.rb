@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'sinatra/assetpack'
 require 'json'
 require_relative './lib/chicago_api_data_presenter'
 require_relative './lib/chicago_data_masher'
