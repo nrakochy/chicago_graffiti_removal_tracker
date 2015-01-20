@@ -1,16 +1,17 @@
 var filterSearchWithUserInputAndLinkToChicagoWebsite = function filterSearch(map, locationMarkers, searchRequest){
   $('[id=searchForm]').submit(function (event){
     event.preventDefault();
-    searchRequest = $('[data-name=search-bar]').val();
+    var request = $('[data-name=search-bar]').val();
+    var searchRequest = appendChicagoLocationToUserInput(request);
     centerMapOnUserInput(searchRequest, map);
     linkToChicagoWebsite();
     setMapMarkers(map, locationMarkers);
   });
 }
 
-function centerMapOnUserInput(searchRequest, map){
+function centerMapOnUserInput(searchInput, map){
   var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({"address": searchRequest}, function(result, status) {
+  geocoder.geocode({"address": searchInput}, function(result, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var newLocation = result[0].geometry.location;
       map.setZoom(14);
@@ -39,5 +40,14 @@ function linkToChicagoWebsite() {
 
 function resetSearchBar(){
   $('[value]').val("");
+}
+
+function appendChicagoLocationToUserInput(input){
+  var matches = input.match(/Chicago, IL/i);
+  if(matches === null){
+    return (input + "Chicago, IL")
+  } else {
+    return input;
+  }
 }
 
