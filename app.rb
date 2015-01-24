@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require_relative './lib/chicago_api_data_presenter'
+require_relative './lib/data_gateway'
 require_relative './lib/chicago_data_masher'
 
 class GraffitiRemovalTracker < Sinatra::Base
@@ -16,7 +17,8 @@ class GraffitiRemovalTracker < Sinatra::Base
 
   def call_external_api
     api_data = ChicagoApiDataPresenter.get_data(CHICAGO_GRAFFITI_REMOVAL_API)
-    ChicagoDataMasher.find_open_requests_with_days_since_request(api_data).to_json
+    served_data = DataGateway.new(api_data).format_api_data
+    ChicagoDataMasher.new(served_data).find_open_requests_with_days_since_request.to_json
   end
 end
 
