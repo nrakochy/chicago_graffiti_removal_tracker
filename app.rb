@@ -4,15 +4,14 @@ require_relative './lib/chicago_api_data_presenter'
 require_relative './lib/chicago_data_masher'
 
 class GraffitiRemovalTracker < Sinatra::Base
-  set :root, File.dirname(__FILE__)
-
-  attr_reader :open_graffiti_requests
   CHICAGO_GRAFFITI_REMOVAL_API = 'https://data.cityofchicago.org/resource/hec5-y4x5.json'
 
   get '/' do
-    @open_graffiti_requests = call_external_api
-    erb :index, :locals => { :openRequests => @open_graffiti_requests }
+    erb :index
+  end
 
+  get '/data' do
+    call_external_api
   end
 
   def call_external_api

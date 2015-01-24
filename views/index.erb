@@ -29,11 +29,13 @@
 
   <script>
     $(document).ready(function(){
-    chicagoMap = initializeMap();
-    initializeSearchBox();
-    var openChicagoRequests= $.parseJSON('<%= openRequests %>');
-    var openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap);
-    filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
+      chicagoMap = initializeMap();
+      initializeSearchBox();
+      $.get('/data', function(result) {
+        var openChicagoRequests= $.parseJSON(result);
+        var openRequestMarkers = initializeMapMarkers(openChicagoRequests, chicagoMap);
+        filterSearchWithUserInputAndLinkToChicagoWebsite(chicagoMap, openRequestMarkers);
+      });
     });
   </script>
 
