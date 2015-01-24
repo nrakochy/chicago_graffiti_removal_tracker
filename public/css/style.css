@@ -92,6 +92,8 @@ input {
   overflow:hidden;
   text-transform:uppercase;
   float:right;
+  height: 200px;
+  width: 150px;
 }
 
 @media only screen and (max-width: 570px) {
